@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridLogica — Document Template</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-white: #FFFFFF;
+            --ink-900: #191919;
+            --ink-800: #2d2d2d;
+            --ink-600: #4d4d4d;
+            --ink-400: #8c8c8c;
+            --ink-border: #eeeeee;
+            --accent-green: #4ade80;
+            
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: #f0f0f0; 
+            font-family: var(--font-sans);
+            color: var(--ink-900);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Page styling for screen preview */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 20px auto;
+            background: var(--bg-white);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Front Cover Specifics */
+        .cover-nav { padding-bottom: 8rem; }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+            color: var(--ink-900);
+            line-height: 1;
+        }
+        .logo span { color: var(--accent-green); }
+
+        header.cover-header {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .header-title {
+            font-size: 6rem;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+        }
+
+        .header-abstract {
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .abstract-lead {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 2.2rem;
+            line-height: 1.2;
+        }
+
+        .abstract-sub-text {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--ink-600);
+            line-height: 1.6;
+        }
+
+        .tag-row {
+            margin-top: 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .tag-item { font-weight: 800; }
+        .tag-sub-item { color: var(--ink-600); font-weight: 500; }
+
+        .cover-footer {
+            margin-top: auto;
+            padding-top: 4rem;
+            font-size: 0.85rem;
+            color: var(--ink-400);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        /* Content Page Typography */
+        .content-body {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--ink-800);
+            max-width: 100%;
+        }
+
+        .content-body h2 {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            margin: 3rem 0 1.5rem 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--ink-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-body h3 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ink-900);
+            margin: 2rem 0 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .content-body p { margin-bottom: 1.5rem; }
+
+        /* Quotation Styling */
+        blockquote {
+            margin: 2.5rem 0;
+            padding-left: 2rem;
+            border-left: 3px solid var(--accent-green);
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            color: var(--ink-900);
+        }
+
+        /* Code Block Styling */
+        pre {
+            background: #f8f9fa;
+            border: 1px solid var(--ink-border);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--ink-800);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--ink-900);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--ink-border);
+            color: var(--ink-600);
+        }
+
+        /* Image Placeholder Box */
+        .image-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 300px;
+            border: 1px solid var(--ink-border);
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .image-caption {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--ink-600);
+            font-style: italic;
+        }
+
+        /* Footnote Styling */
+        .footnotes {
+            margin-top: 4rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--ink-border);
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--ink-600);
+            line-height: 1.4;
+        }
+
+        .footnote-item {
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* APA v7 References Styling */
+        .references-body {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--ink-800);
+        }
+        
+        .references-title {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .ref-hanging {
+            padding-left: 0.5in;
+            text-indent: -0.5in;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Contents List Styling */
+        .contents-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .contents-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            font-family: var(--font-sans);
+        }
+
+        .contents-label { font-weight: 600; }
+        .contents-dots { flex-grow: 1; border-bottom: 1px dotted var(--ink-400); margin: 0 10px; }
+        .contents-page-num { font-weight: 700; font-family: var(--font-mono); }
+
+        /* Page Break Logic */
+        .page-break { display: none; }
+
+        @media print {
+            body, html { background: none; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+            }
+            .page-break { display: block; page-break-after: always; }
+            .header-title { font-size: 64pt !important; }
+            .abstract-lead { font-size: 24pt !important; }
+        }
+
+        @media (max-width: 210mm) {
+            .page { width: 95%; height: auto; padding: 10mm; }
+            .header-title { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: FRONT COVER -->
+    <div class="page">
+        <nav class="cover-nav">
+            <div class="logo">GridLogica<span>.</span></div>
+        </nav>
+
+        <header class="cover-header">
+            <!-- AXIS_NAME_START -->
+            <h1 class="header-title">Axis Name</h1>
+            <!-- AXIS_NAME_END -->
+            
+            <div class="header-abstract">
+                <!-- SUBJECT_NAME_START -->
+                <p class="abstract-lead">
+                    Subject Name
+                </p>
+                <!-- SUBJECT_NAME_END -->
+                
+                <!-- SUBJECT_PRIMER_START -->
+                <div class="abstract-sub-text">
+                    Subject Primer
+                </div>
+                <!-- SUBJECT_PRIMER_END -->
+
+                <!-- TAG_SYSTEM_START -->
+                <div class="tag-row">
+                    <!-- TAG_1 -->
+                    <span class="tag-item">Tag 1</span>
+                    <!-- TAG_2 -->
+                    <span class="tag-sub-item">Tag 2</span>
+                    <!-- TAG_3 -->
+                    <span class="tag-sub-item">Tag 3</span>
+                    <!-- TAG_4 -->
+                    <span class="tag-sub-item">Tag 4</span>
+                </div>
+                <!-- TAG_SYSTEM_END -->
+            </div>
+        </header>
+
+        <footer class="cover-footer">
+            <div>
+                © 2026 GridLogica Systems<br>
+                CC BY-SA 4.0 Open Access Inquiry
+            </div>
+            <div style="text-align: right; font-family: var(--font-serif); font-style: italic;">
+                <!-- REVISION_NUMBER_START -->
+                Revision Number
+                <!-- REVISION_NUMBER_END -->
+            </div>
+        </footer>
+    </div>
+
+    <!-- PAGE 2: COPYRIGHT & ACKNOWLEDGMENTS -->
+    <div class="page">
+        <div class="content-body">
+            <h2>Copyright Notice</h2>
+            <p style="font-size: 0.95rem;">
+                © 2026 GridLogica Systems. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).
+            </p>
+            <p style="font-size: 0.95rem;">
+                Under this license, you are free to share (copy and redistribute the material in any medium or format) and adapt (remix, transform, and build upon the material for any purpose, even commercially) provided that appropriate credit is given and any changes are indicated.
+            </p>
+
+            <h2>Acknowledgments</h2>
+            <p>
+                The foundations of this inquiry are built upon a fifteen-year tenure in technical direction and immersive design psychology. I wish to acknowledge the pedagogical rigor established through the Level 5 DET (Diploma in Education and Training) framework, which serves as the core grounding for these standards.
+            </p>
+            <p>
+                Special recognition is given to the independent researchers and practitioners within the spatial computing community whose collaborative critiques continue to refine the formalization of embodied pedagogy.
+            </p>
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 02</div>
+        </footer>
+    </div>
+
+    <!-- PAGE 3: CONTENTS PAGE -->
+    <div class="page">
+        <div class="content-body">
+            <h2 style="border: none; padding-bottom: 0;">Contents</h2>
+            
+            <div class="contents-list">
+                <div class="contents-item">
+                    <span class="contents-label">Copyright & Acknowledgments</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">02</span>
+                </div>
+                <div class="contents-item">
+                    <span class="contents-label">Abstract</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">04</span>
+                </div>
+                <div class="contents-item">
+                    <span class="contents-label">Core Framework</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">05</span>
+                </div>
+                <div class="contents-item">
+                    <span class="contents-label">Data Analysis</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">06</span>
+                </div>
+                <div class="contents-item">
+                    <span class="contents-label">Visual Schematics</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">07</span>
+                </div>
+                <div class="contents-item">
+                    <span class="contents-label">References</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">08</span>
+                </div>
+                <div class="contents-item" style="margin-top: 2rem;">
+                    <span class="contents-label" style="font-weight: 800;">References & Appendix</span>
+                    <span class="contents-dots"></span>
+                    <span class="contents-page-num">10</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 03</div>
+        </footer>
+    </div>
+
+    <!-- PAGE 4: ABSTRACT -->
+    <div class="page">
+        <div class="content-body">
+            <h2>Abstract</h2>
+            <p>
+                This inquiry investigates the intersection of sensory fidelity, cognitive architecture, and pedagogical intent within immersive learning environments. As spatial computing moves from a novelty to a formal educational medium, the requirement for standardized assessment frameworks becomes critical.
+            </p>
+            <p>
+                Through the lens of design psychology and Level 5 DET standards, this research establishes "Efficient Fidelity" thresholds—defining the exact point where visual and auditory immersion supports, rather than distracts from, conceptual retention.
+            </p>
+            <p>
+                The resulting specification provides a formal roadmap for designers and educators to transition from traditional flat-screen paradigms to embodied, spatial learning systems that are ethical, effective, and measurable.
+            </p>
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 04</div>
+        </footer>
+    </div>
+
+    <!-- PAGE 5: CORE FRAMEWORK (TEXT & QUOTE) -->
+    <div class="page">
+        <div class="content-body">
+            <h2>01. Core Framework</h2>
+            <h3>Typographic and Structural Integrity</h3>
+            <p>
+                The GridLogica system requires a rigorous approach to information density. In spatial environments, the user's cognitive load is directly impacted by the clarity of the visual hierarchy. This applies equally to our technical documentation.
+            </p>
+            
+            <blockquote>
+                "Immersion is not a feature of the hardware, but a state of cognitive alignment where the interface dissolves into the conceptual intent."
+            </blockquote>
+
+            <h3>Embodied Cognition</h3>
+            <p>
+                When a user moves within a spatial field, their understanding of the content is mediated by their physical presence. This is the cornerstone of <strong>Embodied Pedagogy</strong>. We must design transitions and interactions that respect the user's proprioceptive sense.
+            </p>
+            <p>
+                Traditional metrics often fail in these environments because they ignore the temporal and spatial nature of the learning act. We propose a move toward gesture-based proof of mastery.
+            </p>
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 05</div>
+        </footer>
+    </div>
+
+    <!-- PAGE 6: DATA ANALYSIS (TABLES & CODE) -->
+    <div class="page">
+        <div class="content-body">
+            <h2>02. Data Analysis</h2>
+            <h3>Fidelity Tiers</h3>
+            <p>The following table outlines the thresholds for sensory fidelity relative to specific learning outcomes.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Resolution</th>
+                        <th>Latency</th>
+                        <th>Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tier I</td>
+                        <td>4K / Eye</td>
+                        <td>< 12ms</td>
+                        <td>High Presence</td>
+                    </tr>
+                    <tr>
+                        <td>Tier II</td>
+                        <td>2K / Eye</td>
+                        <td>< 20ms</td>
+                        <td>Conceptual Only</td>
+                    </tr>
+                    <tr>
+                        <td>Tier III</td>
+                        <td>1K / Eye</td>
+                        <td>< 40ms</td>
+                        <td>Utility/UI</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Implementation Logic</h3>
+            <p>Below is a sample JSON structure for defining a spatial assessment metric within a spatial environment.</p>
+            
+            <pre><code>{
+  "metric_id": "GL-SPA-01",
+  "name": "Proprioceptive Alignment",
+  "thresholds": {
+    "optimal": 0.95,
+    "warning": 0.80,
+    "failure": < 0.75
+  },
+  "unit": "Quaternion Variance"
+}</code></pre>
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 06</div>
+        </footer>
+    </div>
+
+    <!-- PAGE 7: VISUAL SCHEMATICS (IMAGE & FOOTNOTES) -->
+    <div class="page">
+        <div class="content-body">
+            <h2>03. Visual Schematics</h2>
+            <div class="image-container">
+                <div class="image-box">
+                    <div style="font-weight: 800; font-size: 2rem; color: #eee;">[ FIG 01.A ]</div>
+                    <div style="color: #ccc; margin-top: 10px;">Proprioceptive Field Visualization</div>
+                </div>
+                <div class="image-caption">Fig 01.A: Cross-section of user interaction field during high-fidelity simulation tasks.</div>
+            </div>
+
+            <h3>System Integration</h3>
+            <p>
+                Visualizing the user's gaze paths and gesture sequences is essential for verifying pedagogical efficacy. As shown in the figure above, the interaction field must remain within the "Optimal Reach Zone" to prevent physical fatigue.<sup>[1]</sup>
+            </p>
+            <p>
+                Furthermore, the ethical implications of recording such high-granularity spatial data must be addressed within the design phase.<sup>[2]</sup>
+            </p>
+
+            <div class="footnotes">
+                <div class="footnote-item">
+                    <span>[1]</span>
+                    <span>See "Physical Ergonomics in Spatial Computing," Vol 4, Issue 2, p. 45.</span>
+                </div>
+                <div class="footnote-item">
+                    <span>[2]</span>
+                    <span>Refer to the Ethical Identity Boundaries section (Page 16) for data privacy protocols.</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 07</div>
+        </footer>
+    </div>
+
+    <!-- PAGE 8: REFERENCES (APA v7) -->
+    <div class="page">
+        <div class="references-body">
+            <div class="references-title">References</div>
+            
+            <!-- Placeholder logic for empty references -->
+            <p style="text-align: center; color: var(--ink-400); font-style: italic; margin-bottom: 2rem;">
+                No references were utilized in this specific revision of the inquiry.
+            </p>
+
+            <!-- Example of APA v7 Formatting (Uncomment/Replace as needed) -->
+            <!--
+            <div class="ref-hanging">
+                GridLogica. (2026). <em>Spatial metrics and pedagogical standards: A technical specification</em> (Vol. 1). GridLogica Publishing.
+            </div>
+            <div class="ref-hanging">
+                Lastname, F. M. (Year). Title of the article. <em>Journal Title</em>, <em>Volume</em>(Issue), page-range. https://doi.org/xxxx
+            </div>
+            -->
+        </div>
+        
+        <footer class="cover-footer">
+            <div style="color: var(--ink-400);">GridLogica Systems</div>
+            <div style="color: var(--ink-400);">Page 08</div>
+        </footer>
+    </div>
+
+</body>
+</html>
