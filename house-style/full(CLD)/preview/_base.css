@@ -1,0 +1,44 @@
+/* Shared base for design-system preview cards.
+   Each card targets ~700px wide, height varies. */
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--gl-warm);
+  color: var(--gl-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  padding: 24px 28px;
+  width: 100%;
+  min-height: 100%;
+}
+
+.card.surface { background: var(--gl-surface); }
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gl-ink-3);
+}
+
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-5 { gap: 24px; }
+.gap-6 { gap: 32px; }
+.wrap { flex-wrap: wrap; }
+.aic { align-items: center; }
+.aib { align-items: baseline; }
+.ais { align-items: flex-start; }
+.jcb { justify-content: space-between; }
