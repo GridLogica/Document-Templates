@@ -1,0 +1,553 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --gl-ink: #0f0f0d;
+  --gl-ink-2: #3a3a35;
+  --gl-ink-3: #7a7a72;
+  --gl-rule: #d4d0c4;
+  --gl-warm: #f5f3ed;
+  --gl-accent: #1a3a2a;
+  --gl-accent-mid: #2c6048;
+  --gl-accent-light: #d4e8de;
+  --gl-amber: #b87333;
+  --gl-amber-light: #f0e4d0;
+  --gl-surface: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: 'Lato', sans-serif; font-weight: 300; color: var(--gl-ink); line-height: 1.6; }
+
+.sg-root { padding: 2rem 0 3rem; }
+
+.section { margin-bottom: 3rem; }
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gl-ink-3);
+  border-top: 1px solid var(--gl-rule);
+  padding-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.wordmark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: var(--gl-ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.wordmark span {
+  color: var(--gl-accent-mid);
+}
+
+.tagline {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gl-ink-3);
+}
+
+.type-row { margin-bottom: 1.25rem; display: flex; align-items: baseline; gap: 16px; }
+.type-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--gl-ink-3);
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.t-h1 { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.15; color: var(--gl-ink); }
+.t-h2 { font-family: 'DM Serif Display', serif; font-size: 24px; line-height: 1.25; color: var(--gl-ink); }
+.t-h3 { font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gl-ink-2); }
+.t-body { font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 300; color: var(--gl-ink-2); line-height: 1.7; }
+.t-mono { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--gl-accent-mid); }
+.t-caption { font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 400; color: var(--gl-ink-3); letter-spacing: 0.05em; }
+.t-nav { font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: var(--gl-ink-2); letter-spacing: 0.04em; }
+
+.palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; }
+
+.swatch { border-radius: 4px; overflow: hidden; }
+.swatch-color { height: 48px; }
+.swatch-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  color: var(--gl-ink-3);
+  padding: 6px 4px 0;
+  line-height: 1.4;
+}
+.swatch-name { font-weight: 500; color: var(--gl-ink-2); font-size: 10.5px; }
+
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.nav-strip {
+  background: var(--gl-warm);
+  border: 0.5px solid var(--gl-rule);
+  border-radius: 6px;
+  padding: 14px 20px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: var(--gl-ink);
+  margin-right: auto;
+}
+
+.nav-link { font-size: 13px; color: var(--gl-ink-2); text-decoration: none; font-weight: 400; }
+.nav-link.active { color: var(--gl-accent-mid); border-bottom: 1px solid var(--gl-accent-mid); padding-bottom: 1px; }
+
+.btn-primary {
+  background: var(--gl-accent);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gl-accent);
+  border: 1px solid var(--gl-accent);
+  padding: 9px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gl-ink-3);
+  border: none;
+  padding: 9px 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+.tag-green { background: var(--gl-accent-light); color: var(--gl-accent); }
+.tag-amber { background: var(--gl-amber-light); color: var(--gl-amber); }
+.tag-ink { background: #e8e5df; color: var(--gl-ink-2); }
+
+.pub-card {
+  background: var(--gl-surface);
+  border: 0.5px solid var(--gl-rule);
+  border-left: 3px solid var(--gl-accent);
+  padding: 1rem 1.25rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.pub-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--gl-ink-3);
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.pub-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: var(--gl-ink);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.pub-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gl-ink-3);
+  line-height: 1.5;
+}
+
+.focus-card {
+  background: var(--gl-warm);
+  border: 0.5px solid var(--gl-rule);
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+}
+
+.focus-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gl-accent-mid);
+  margin-bottom: 6px;
+}
+
+.focus-body {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gl-ink-2);
+  line-height: 1.6;
+}
+
+.input-field {
+  width: 100%;
+  border: 0.5px solid var(--gl-rule);
+  border-radius: 2px;
+  padding: 9px 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gl-ink);
+  background: var(--gl-surface);
+  outline: none;
+}
+
+.input-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gl-ink-3);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.divider { border: none; border-top: 1px solid var(--gl-rule); margin: 1.5rem 0; }
+
+.spacing-row { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 4px; }
+.spacing-block { background: var(--gl-accent-light); border-radius: 2px; }
+.spacing-lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gl-ink-3); }
+
+.icon-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.icon-lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gl-ink-3); }
+
+.grid-motif {
+  width: 100%;
+  height: 48px;
+  background-image:
+    linear-gradient(var(--gl-rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gl-rule) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-motif::after {
+  content: 'Grid — order from complexity';
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gl-ink-3);
+}
+
+.comp-block { background: var(--gl-warm); border: 0.5px solid var(--gl-rule); border-radius: 4px; padding: 1rem; }
+.comp-block-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gl-ink-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+
+.footer-strip {
+  border-top: 1px solid var(--gl-rule);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--gl-ink); }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gl-ink-3); }
+
+</style>
+
+<div class="sg-root">
+
+<div class="section">
+  <div class="section-label">Brand Identity</div>
+  <div class="wordmark">Grid<span>Logica</span><span style="color:var(--gl-rule)">.</span></div>
+  <div class="tagline">Independent Research</div>
+  <div style="margin-top: 1rem; max-width: 480px;">
+    <p class="t-body" style="font-size:13px;">GridLogica formalises the pedagogy of immersive and spatial computing. The identity carries precision, scholarly rigour, and a quiet authority — never decorative, always purposeful.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Design Motif</div>
+  <div class="grid-motif"></div>
+  <p class="t-caption">The grid references both the logical structure of research frameworks and spatial computing environments. It recurs as background texture, layout scaffolding, and implicit metaphor.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">Colour Palette</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0f0f0d;"></div>
+      <div class="swatch-label"><div class="swatch-name">Ink</div>#0f0f0d</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#3a3a35;"></div>
+      <div class="swatch-label"><div class="swatch-name">Ink Secondary</div>#3a3a35</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#7a7a72;"></div>
+      <div class="swatch-label"><div class="swatch-name">Ink Muted</div>#7a7a72</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1a3a2a;"></div>
+      <div class="swatch-label"><div class="swatch-name">Forest</div>#1a3a2a</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#2c6048;"></div>
+      <div class="swatch-label"><div class="swatch-name">Forest Mid</div>#2c6048</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#d4e8de;"></div>
+      <div class="swatch-label"><div class="swatch-name">Forest Light</div>#d4e8de</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f5f3ed;"></div>
+      <div class="swatch-label"><div class="swatch-name">Warm White</div>#f5f3ed</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#d4d0c4;"></div>
+      <div class="swatch-label"><div class="swatch-name">Rule</div>#d4d0c4</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#b87333;"></div>
+      <div class="swatch-label"><div class="swatch-name">Amber</div>#b87333</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#f0e4d0;"></div>
+      <div class="swatch-label"><div class="swatch-name">Amber Light</div>#f0e4d0</div>
+    </div>
+  </div>
+  <p class="t-caption" style="margin-top:10px;">Forest green anchors all primary actions and accents. Warm white (#f5f3ed) replaces pure white for surfaces, preventing harshness. Amber is used sparingly for secondary tags and PDF indicators. Never use pure #ffffff or #000000.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">Typography</div>
+
+  <div class="type-row">
+    <div class="type-meta">DM Serif Display<br>Heading 1 / 36px</div>
+    <div class="t-h1">Pedagogical Inquiry</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">DM Serif Display<br>Heading 2 / 24px</div>
+    <div class="t-h2">Cognitive Load</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Lato 700<br>Label / 14px</div>
+    <div class="t-h3">Focus Area</div>
+  </div>
+
+  <div class="type-row" style="align-items:flex-start;">
+    <div class="type-meta" style="padding-top:3px;">Lato 300<br>Body / 16px</div>
+    <div class="t-body" style="max-width:380px;">Drawing on a 15-year foundation in technology direction and immersive design, I investigate the formal frameworks required for effective immersive learning.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">DM Mono 400<br>Code/Meta / 13px</div>
+    <div class="t-mono">Standard S-101-P</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Lato 400<br>Caption / 12px</div>
+    <div class="t-caption">March 2026 — PDF Available</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Lato 400<br>Navigation / 14px</div>
+    <div class="t-nav">Library · Standards · About · Contact</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Navigation</div>
+  <div class="comp-block">
+    <div class="comp-block-label">Header</div>
+    <div class="nav-strip">
+      <div class="nav-brand">GridLogica.</div>
+      <a class="nav-link active">Library</a>
+      <a class="nav-link">Standards</a>
+      <a class="nav-link">About</a>
+      <a class="nav-link">Contact</a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Buttons & Controls</div>
+  <div class="comp-block" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+    <button class="btn-primary">Access Framework</button>
+    <button class="btn-secondary">Read Standard</button>
+    <button class="btn-ghost">↓ Download PDF</button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Tags & Labels</div>
+  <div class="comp-block">
+    <span class="tag tag-green">Cognitive Load</span>
+    <span class="tag tag-green">Embodied Pedagogy</span>
+    <span class="tag tag-amber">PDF Available</span>
+    <span class="tag tag-ink">Draft</span>
+    <span class="tag tag-ink">Standard S-101-P</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Cards — Publication</div>
+  <div class="pub-card">
+    <div class="pub-meta">March 2026 · Standard S-101-P</div>
+    <div class="pub-title">Purpose</div>
+    <div class="pub-desc">Primacy of learning over novelty in simulation experience.</div>
+    <div style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+      <span class="tag tag-amber" style="margin:0;">PDF Available</span>
+      <span style="font-family:'DM Mono',monospace; font-size:10px; color:var(--gl-ink-3);">CC BY-SA 4.0</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Cards — Focus Area</div>
+  <div class="comp-grid">
+    <div class="focus-card">
+      <div class="focus-title">Cognitive Load</div>
+      <div class="focus-body">Applying cognitive science to high-fidelity sensory inputs to establish Efficient Fidelity thresholds.</div>
+    </div>
+    <div class="focus-card">
+      <div class="focus-title">Embodied Pedagogy</div>
+      <div class="focus-body">Mapping physical movement to conceptual understanding via DET standards and hand-tracking.</div>
+    </div>
+    <div class="focus-card">
+      <div class="focus-title">Spatial Assessment</div>
+      <div class="focus-body">Developing frameworks utilising gaze paths and gesture sequences as valid proof of mastery.</div>
+    </div>
+    <div class="focus-card">
+      <div class="focus-title">Ethics & Identity</div>
+      <div class="focus-body">Exploring ethical implications of identity embodiment within virtual, high-stakes environments.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Form Elements</div>
+  <div class="comp-block">
+    <div style="max-width:320px;">
+      <label class="input-label">Search publications</label>
+      <input class="input-field" type="text" placeholder="Keyword or standard code…">
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Spacing Scale</div>
+  <div class="comp-block">
+    <div class="spacing-row">
+      <div class="spacing-block" style="width:4px; height:4px;"></div>
+      <div class="spacing-block" style="width:8px; height:8px;"></div>
+      <div class="spacing-block" style="width:12px; height:12px;"></div>
+      <div class="spacing-block" style="width:16px; height:16px;"></div>
+      <div class="spacing-block" style="width:24px; height:24px;"></div>
+      <div class="spacing-block" style="width:32px; height:32px;"></div>
+      <div class="spacing-block" style="width:48px; height:48px;"></div>
+      <div class="spacing-block" style="width:64px; height:64px;"></div>
+    </div>
+    <div class="spacing-row" style="margin-top:4px;">
+      <div class="spacing-lbl" style="width:4px; text-align:center;">4</div>
+      <div class="spacing-lbl" style="width:8px; text-align:center;">8</div>
+      <div class="spacing-lbl" style="width:12px; text-align:center;">12</div>
+      <div class="spacing-lbl" style="width:16px; text-align:center;">16</div>
+      <div class="spacing-lbl" style="width:24px; text-align:center;">24</div>
+      <div class="spacing-lbl" style="width:32px; text-align:center;">32</div>
+      <div class="spacing-lbl" style="width:48px; text-align:center;">48</div>
+      <div class="spacing-lbl" style="width:64px; text-align:center;">64</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Border Radius & Rules</div>
+  <div class="comp-block" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+    <div style="width:48px; height:48px; background:var(--gl-accent-light); border:0.5px solid var(--gl-accent); border-radius:0px; display:flex; align-items:center; justify-content:center;">
+      <span class="spacing-lbl">0px</span>
+    </div>
+    <div style="width:48px; height:48px; background:var(--gl-accent-light); border:0.5px solid var(--gl-accent); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+      <span class="spacing-lbl">2px</span>
+    </div>
+    <div style="width:48px; height:48px; background:var(--gl-accent-light); border:0.5px solid var(--gl-accent); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+      <span class="spacing-lbl">4px</span>
+    </div>
+    <div style="flex:1; min-width:120px; height:1px; background:var(--gl-rule); position:relative;">
+      <span class="spacing-lbl" style="position:absolute; top:4px; left:0;">0.5px rule</span>
+    </div>
+    <div style="flex:1; min-width:120px; height:1px; background:var(--gl-ink-3); position:relative;">
+      <span class="spacing-lbl" style="position:absolute; top:4px; left:0;">1px rule</span>
+    </div>
+    <div style="flex:1; min-width:120px; height:3px; background:var(--gl-accent); position:relative;">
+      <span class="spacing-lbl" style="position:absolute; top:6px; left:0;">3px accent border</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Voice & Tone</div>
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <span class="tag tag-green" style="flex-shrink:0; margin-top:2px;">Use</span>
+      <span class="t-body" style="font-size:13px;">Precise, measured, evidenced. Scholarly without being opaque. First person singular ("I investigate…").</span>
+    </div>
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <span class="tag tag-ink" style="flex-shrink:0; margin-top:2px;">Avoid</span>
+      <span class="t-body" style="font-size:13px;">Buzzwords, hyperbole, marketing copy. Never "innovative solution" or "cutting-edge". Let the research speak.</span>
+    </div>
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <span class="tag tag-amber" style="flex-shrink:0; margin-top:2px;">Tone</span>
+      <span class="t-body" style="font-size:13px;">Confident but not self-aggrandising. Intellectual peer-to-peer. Grounded in lived practice and formal theory.</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer-strip">
+  <div class="footer-brand">GridLogica.</div>
+  <div class="footer-copy">Styleguide v1.0 · CC BY-SA 4.0</div>
+</div>
+
+</div>
