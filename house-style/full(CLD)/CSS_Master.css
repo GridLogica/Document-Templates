@@ -1,0 +1,250 @@
+/* ============================================================
+   GridLogica — Colors & Type
+   The single source of truth for visual tokens.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---------- Color: Ink (text / surfaces dark) ---------- */
+  --gl-ink:           #1a1a1a;  /* primary text, headings (matches ink-900) */
+  --gl-ink-2:         #404040;  /* body emphasis (ink-800) */
+  --gl-ink-3:         #6b6b6b;  /* secondary body, captions (ink-600) */
+  --gl-ink-4:         #a3a3a3;  /* placeholder, muted icons (ink-400) */
+  --gl-rule:          #e5e5e5;  /* hairline rules, dividers (ink-border) */
+
+  /* ---------- Color: Surfaces ---------- */
+  --gl-surface:       #ffffff;
+  --gl-warm:          #f5f3ed;  /* page background ("paper") */
+  --gl-warm-alt:      #ecebe4;  /* search input, soft surfaces ("paper-alt") */
+
+  /* ---------- Color: Green accent ---------- */
+  /* The system uses TWO greens deliberately:
+       --gl-accent-bright: lime/spring green for the wordmark dot, marquee accents
+       --gl-accent: deep forest for links, PDF indicators, secondary text accents
+       --gl-accent-light: pale mint for tag pills (Standard S-101-P)
+  */
+  --gl-accent-bright: #4ade80;  /* green-400 — wordmark dot only */
+  --gl-accent:        #15803d;  /* green-700 — PDF link, accent text */
+  --gl-accent-mid:    #166534;  /* green-800 — pill text */
+  --gl-accent-light:  #dcfce7;  /* green-100 — pill background */
+
+  /* ---------- Color: Amber (secondary, used sparingly) ---------- */
+  --gl-amber:         #b87333;  /* PDF indicator, secondary tags */
+  --gl-amber-light:   #f0e4d0;  /* amber tag background */
+
+  /* ---------- Semantic foreground / background ---------- */
+  --fg-1: var(--gl-ink);
+  --fg-2: var(--gl-ink-2);
+  --fg-3: var(--gl-ink-3);
+  --fg-accent: var(--gl-accent-mid);
+  --bg-page: var(--gl-warm);
+  --bg-card: var(--gl-surface);
+  --bg-soft: var(--gl-warm);
+  --border-rule: var(--gl-rule);
+
+  /* ---------- Type families ----------
+     Source-of-truth pairing from the canonical site:
+       --font-sans (Inter): nav, buttons, UI labels, the wordmark, focus titles,
+         metadata. Weights: 400 / 500 / 600 / 700.
+       --font-serif (Source Serif 4): ALL prose — headings (publication titles,
+         h2, body), the italic hero strap, descriptions. Weights: 400 / 500 /
+         600 / 700, italics 400 / 500.
+       --font-mono (DM Mono): reserved for keyboard hints / code only. Used
+         sparingly — most "meta" looking text in the system is sans, not mono.
+  */
+  --font-sans:    'Inter', -apple-system, system-ui, sans-serif;
+  --font-serif:   'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  --font-mono:    'DM Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ---------- Type weights ---------- */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-bold:    700;
+
+  /* ---------- Type scale ---------- */
+  --t-h1-size:      36px;
+  --t-h2-size:      24px;
+  --t-h3-size:      14px;   /* uppercase label */
+  --t-body-size:    16px;
+  --t-small-size:   13px;
+  --t-caption-size: 12px;
+  --t-mono-size:    13px;
+  --t-meta-size:    10px;   /* mono uppercase meta */
+
+  /* ---------- Letter spacing (tracking) ---------- */
+  --tracking-tight:    -0.5px;   /* large serif headings */
+  --tracking-label:    0.08em;   /* uppercase labels */
+  --tracking-section:  0.15em;   /* section labels (mono uppercase) */
+  --tracking-meta:     0.1em;    /* mono meta */
+  --tracking-button:   0.06em;
+  --tracking-tagline:  0.2em;    /* taglines, all-caps */
+
+  /* ---------- Line heights ---------- */
+  --lh-tight:   1.15;
+  --lh-snug:    1.25;
+  --lh-normal:  1.5;
+  --lh-body:    1.7;
+
+  /* ---------- Spacing scale ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+
+  /* ---------- Radii ---------- */
+  --radius-0:    0;
+  --radius-xs:   2px;   /* buttons, tags, inputs */
+  --radius-sm:   4px;   /* cards, swatches */
+  --radius-md:   6px;   /* larger surfaces (nav strip) */
+  --radius-pub:  0 4px 4px 0; /* publication card with left accent border */
+
+  /* ---------- Borders ---------- */
+  --border-hair:   0.5px solid var(--gl-rule);   /* default card / surface */
+  --border-thin:   1px solid var(--gl-rule);     /* dividers */
+  --border-strong: 1px solid var(--gl-ink-3);    /* emphasized rule */
+  --border-accent: 3px solid var(--gl-accent);   /* publication card left edge */
+
+  /* ---------- Shadows: GridLogica is FLAT. ---------- */
+  /* Hairline borders carry visual hierarchy; shadows are reserved
+     for floating UI (menus, modals) — never decoration. */
+  --shadow-none:  none;
+  --shadow-float: 0 4px 24px rgba(15, 15, 13, 0.08);
+  --shadow-modal: 0 12px 48px rgba(15, 15, 13, 0.16);
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:    120ms;
+  --dur-normal:  200ms;
+  --dur-slow:    320ms;
+}
+
+/* ============================================================
+   Element defaults — apply directly when scope permits
+   ============================================================ */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* H1 — sans bold, very tight tracking */
+h1, .gl-h1 {
+  font-family: var(--font-sans);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--fg-1);
+}
+
+/* H2 — sans bold, tight */
+h2, .gl-h2 {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+}
+
+/* H3 — focus titles, publication titles. Sans bold. */
+h3, .gl-h3 {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--fg-1);
+}
+
+/* Body prose — Source Serif 4, generous line-height */
+p, .gl-body {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--gl-ink-2);
+}
+
+/* Editorial accent — italic Source Serif. Hero strap. */
+.gl-accent, blockquote, em.gl-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.35;
+  color: var(--fg-1);
+}
+
+/* UI sans label — nav, buttons, focus-area inline links */
+.gl-ui {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fg-1);
+}
+
+small, .gl-small {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gl-ink-3);
+}
+
+code, kbd, samp, .gl-mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono-size);
+  color: var(--gl-accent-mid);
+}
+
+.gl-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fg-3);
+}
+
+/* Section label — used to introduce a region of content.
+   Mono, uppercase, top-rule. The signature GridLogica pattern. */
+.gl-section-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-meta-size);
+  font-weight: 500;
+  letter-spacing: var(--tracking-section);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  border-top: var(--border-thin);
+  padding-top: 12px;
+}
+
+/* Tagline — italic serif. Sits under the wordmark in nav and footer. */
+.gl-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gl-ink-3);
+}
+
+/* Wordmark — the canonical GridLogica logotype. Sans bold, tight, with bright-green dot. */
+.gl-wordmark {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: -0.025em;
+  color: var(--fg-1);
+  line-height: 1;
+}
+.gl-wordmark .dot { color: var(--gl-accent-bright); }
